@@ -140,20 +140,40 @@ public class Oblig1 {
     // Oppgave 4
     public static void delsortering(int[] a) {
 
+        int partall=0; //tatt ut for å kunne brukes utefor
         //tom og en verdi
+        Boolean ferdig = false;
+        while (!ferdig) {
+            int v = 0;
+            int h = a.length - 1;
+            // Venstrepeker økes til den finner partall.  while(v <= h && er partall/oddetall)
+            while (v <= h && a[v] % 2 == 0 && v<=a.length) {
+                v++;
+            }
+            // deretter minker venstrepeker til den finner oddetall. while(v <= h && er partall/oddetall)
+            while (v <= h && a[h] % 2 != 0 && h>=0) {
+                h--;
+            }
+            // når begge har funnet og ikke passert hverande, bytter tallene plass.
+            int t =a[h];
+            a[v]=t;
+            a[h]=v;
 
-        //to pekere som starter ytterts. while
-        // Venstrepeker økes til den finner partall.  while(v <= h && er partall/oddetall)
-        // deretter minker venstrepeker til den finner oddetall. while(v <= h && er partall/oddetall)
-        // når begge har funnet og ikke passert hverande, bytter tallene plass.
-        // lagre hvor mange oddetall- kan kalles skille til og ikke med
-        //partall mod2=0???
-
+            if (v > h) {
+                partall = v;
+                ferdig = true;
+            }
+            // lagre hvor mange oddetall- kan kalles skille til og ikke med
+        }
+        // p2
         // problem hva om alle element er partall eller oddetall(ikke partall).
         // kan gå ut av tabellen. Sjekk v mindre enn tabell.lengde.
         // v <= h && er partall/oddetall
 
-        // ved sortering quicksort
+        boolean vsortert = false;
+        while (!vsortert) {// sortering quicksort
+        }
+
         // problem noen av sidene kan bli tomme !!!
         // Velger siste/midterste/ element som pivot element.
         // 3 partisjoner mindre pivot eller 'større eller lik' en pivot elementet.
@@ -181,6 +201,15 @@ public class Oblig1 {
 
         //En rotasjon i en tom tabell eller tabell med nøyaktig ett element skal ikke gi
         //feilmelding, men rotasjonen vil da ikke gjøre noe.
+        if (a.length == 0) {
+        } else if (a.length == 1) {
+        } else {
+            int siste = a[a.length - 1];
+            for (int i = 0; i < a.length-1; i++) {
+                a[i+1]=a[i];
+            }
+            a[0]=siste;
+        }
 
         //Metoden skal «rote-
         //re» elementene i en tabell. En rotasjon gjøres ved at det siste elementet settes
@@ -189,11 +218,7 @@ public class Oblig1 {
         //char[] a = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
         //rotasjon(a);
         //// a er nå {'J', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'}
-
-
-
-
-        throw new UnsupportedOperationException();}
+    }
 
     // Oppgave 6    Ikke obligatorisk
     public static void rotasjon(char[] a, int k) {
