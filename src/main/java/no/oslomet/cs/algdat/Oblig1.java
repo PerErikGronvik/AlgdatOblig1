@@ -114,7 +114,7 @@ public class Oblig1 {
             int tellerUnike = 0; // Teller unike tall.
             int minsteUbrukteTall = Integer.MIN_VALUE;
             boolean status = false;
-            while (status == false) { //teller minste ubrukte tall.
+            while (!status) { //teller minste ubrukte tall.
                 int nyttMinsteTall = Integer.MAX_VALUE; // Resetter nyttminstetall
                 for (int i = 0; i < a.length; i++) { //finner minste ubrukte tall
                     if (a[i] < nyttMinsteTall && a[i] > minsteUbrukteTall) {
@@ -135,23 +135,35 @@ public class Oblig1 {
 
     }
 
-
-    //Metoden skal returnere hvor mange forskjellige verdier som er i a, og skal ikke
-    //endre på tabellens innhold.
-    //Metoden skal ikke bruke noen hjelpetabeller. Alt arbeid skal kun foregå innenfor
-    //tabellen a. Du kan derfor eksempelvis ikke lage en sortert kopi av a, eller lage en
-    //tabell over tidligere registrerte verdier. Du kan selvfølgelig lage hjelpevariabler.
-
-
-
+// Tell like og trekk ifra length - hvis jeg får tid. Vil bli enklere.
 
     // Oppgave 4
     public static void delsortering(int[] a) {
 
+        //tom og en verdi
 
-        //Den skal dele tabellen a i to sorterte deler. Venstre del skal inneholde alle oddetallene sortert, og
-        //høyre del alle partallene sortert. Følgende eksempel viser bruksområdet:
-        // Eksempel a = {1, 3, 5, 7, 9, 2, 4, 6, 8, 10}
+        //to pekere som starter ytterts. while
+        // Venstrepeker økes til den finner partall.  while(v <= h && er partall/oddetall)
+        // deretter minker venstrepeker til den finner oddetall. while(v <= h && er partall/oddetall)
+        // når begge har funnet og ikke passert hverande, bytter tallene plass.
+        // lagre hvor mange oddetall- kan kalles skille til og ikke med
+        //partall mod2=0???
+
+        // problem hva om alle element er partall eller oddetall(ikke partall).
+        // kan gå ut av tabellen. Sjekk v mindre enn tabell.lengde.
+        // v <= h && er partall/oddetall
+
+        // ved sortering quicksort
+        // problem noen av sidene kan bli tomme !!!
+        // Velger siste/midterste/ element som pivot element.
+        // 3 partisjoner mindre pivot eller 'større eller lik' en pivot elementet.
+        // dermed er alltid en liste kortere.
+
+        //
+
+        // Den skal dele tabellen a i to sorterte deler.
+        // Venstre del skal inneholde alle oddetallene sortert, og
+        // høyre del alle partallene sortert.
 
         //Tabellen a kan være tom, kan inneholde både negative og positive tall, kan
         //bestå av kun oddetall, eller kun av kun partall. Ingen av disse mulighetene skal gi
@@ -179,9 +191,11 @@ public class Oblig1 {
         //// a er nå {'J', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'}
 
 
+
+
         throw new UnsupportedOperationException();}
 
-    // Oppgave 6
+    // Oppgave 6    Ikke obligatorisk
     public static void rotasjon(char[] a, int k) {
 
         //Vi går her videre fra forrige oppgave, og vil kunne rotere mer enn ett steg.
