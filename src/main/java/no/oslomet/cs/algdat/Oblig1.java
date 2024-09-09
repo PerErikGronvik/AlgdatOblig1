@@ -103,43 +103,47 @@ public class Oblig1 {
 
 
     // Oppgave 3
-    public static int antallUlikeUsortert(int[] a) {
+
+    public static int antallUlikeUsortert(int[] a) { //hvilken som helst heltallstabell, ikke sortert, flere like verdier.
+
         if (a.length == 0) {
             return 0;
         } else if (a.length == 1) { //tabell med et tall har et unikt tall
             return 1;
         } else {
-            int teller = 0; // første tall er alltid unikt, men nå er det annen fremgangsmetode
-            int minsteUbrukteTall;
-            int storsteTall;
-            //løkke som finner det største ubrukte tallet
-            for (int i = 0; i < a.length-1; i++) { //finne største tall
-                if (a[i] > storsteTall) {
-                    storsteTall=a[i];
-                }
-            }
-            while (minsteUbrukteTall != storsteTall) {        //while løkke som går gjennom alle minste ubrukte tall
-                for (int i = 0; i < a.length-1; i++) { //finne neste minste tall
-                    if (a[i] > a[i + 1] && a[i] < minsteUbrukteTall) {
-                        minsteUbrukteTall=a[i];
+            int tellerUnike = 0; // Teller unike tall.
+            int minsteUbrukteTall = Integer.MIN_VALUE;
+            boolean status = false;
+            while (status == false) { //teller minste ubrukte tall.
+                int nyttMinsteTall = Integer.MAX_VALUE; // Resetter nyttminstetall
+                for (int i = 0; i < a.length; i++) { //finner minste ubrukte tall
+                    if (a[i] < nyttMinsteTall && a[i] > minsteUbrukteTall) {
+                        nyttMinsteTall = a[i];
                     }
                 }
 
+
+                if (nyttMinsteTall == Integer.MAX_VALUE) { //stopper om ingen nytt minstetall blir funnet
+                    status = true; //stopper løkken
+                } else {
+                    minsteUbrukteTall = nyttMinsteTall;
+                    tellerUnike++; //teller for hvert unike tall.
+                }
             }
-
-
-            //while fortsetter helt helt til det minste ulike tallet er det største
-            //returnerer teller
+            return tellerUnike;
         }
 
-            //Tabellen a kan nå være en hvilken som helst heltallstabell, den trenger ikke være sortert, og kan ha flere like verdier.
-        //Metoden skal returnere hvor mange forskjellige verdier som er i a, og skal ikke endre på tabellens innhold.
+    }
 
-        //Metoden skal ikke bruke noen hjelpetabeller. Alt arbeid skal kun foregå innenfor
-        //tabellen a. Du kan derfor eksempelvis ikke lage en sortert kopi av a, eller lage en
-        //tabell over tidligere registrerte verdier. Du kan selvfølgelig lage hjelpevariabler.
 
-        throw new UnsupportedOperationException();}
+    //Metoden skal returnere hvor mange forskjellige verdier som er i a, og skal ikke
+    //endre på tabellens innhold.
+    //Metoden skal ikke bruke noen hjelpetabeller. Alt arbeid skal kun foregå innenfor
+    //tabellen a. Du kan derfor eksempelvis ikke lage en sortert kopi av a, eller lage en
+    //tabell over tidligere registrerte verdier. Du kan selvfølgelig lage hjelpevariabler.
+
+
+
 
     // Oppgave 4
     public static void delsortering(int[] a) {
