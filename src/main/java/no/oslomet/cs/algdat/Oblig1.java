@@ -210,14 +210,6 @@ public class Oblig1 {
             }
             a[0]=siste;
         }
-
-        //Metoden skal «rote-
-        //re» elementene i en tabell. En rotasjon gjøres ved at det siste elementet settes
-        //først, og alle andre element forskyves ett steg mot høyre. F
-
-        //char[] a = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
-        //rotasjon(a);
-        //// a er nå {'J', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'}
     }
 
     // Oppgave 6    Ikke obligatorisk
@@ -245,7 +237,21 @@ public class Oblig1 {
 
     // Oppgave 7
     public static String flett(String s, String t) {
+
         //«flette» sammen to strenger s og t, slik at resultatet er en streng
+        //brianstorm kode
+        int v1 =0;
+        int v2 =0;
+        while{
+            while
+            while
+                if erTegn(streng[i]){
+                    a += streng[i]
+                };
+            if v1!=ertegn && v2!=ertegn
+                true //end
+        }
+
         //der annenhvert tegn kommer fra s, og annenhvert kommer fra t. Hvis s
         //og t har forskjellig lengde, skal det som er «til overs» legges inn bakerst.
         //Metoden skal returnere den sammenflettede strengen. Følgende eksempler
@@ -258,7 +264,7 @@ public class Oblig1 {
         //// a er nå "AB"
         //Tomme strenger er lovlig input.
 
-        throw new UnsupportedOperationException();}
+        }
 
     public static String flett(String... s) {
 
