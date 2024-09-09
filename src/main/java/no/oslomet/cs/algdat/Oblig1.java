@@ -147,20 +147,20 @@ public class Oblig1 {
             int v = 0;
             int h = a.length - 1;
             // Venstrepeker økes til den finner partall.  while(v <= h && er partall/oddetall)
-            while (v <= h && a[v] % 2 == 0 && v<=a.length) {
+            while (v <= h && a[v] % 2 == 0 && v<a.length) {
                 v++;
             }
             // deretter minker venstrepeker til den finner oddetall. while(v <= h && er partall/oddetall)
-            while (v <= h && a[h] % 2 != 0 && h>=0) {
+            while (v <= h && a[h] % 2 != 0 && h>0) {
                 h--;
             }
             // når begge har funnet og ikke passert hverande, bytter tallene plass.
-            int t =a[h];
-            a[v]=t;
-            a[h]=v;
+            int t =a[v];
+            a[v]=a[h];
+            a[h]=t;
 
             if (v > h) {
-                partall = v;
+                partall = v; // v talte partal og passeres ut av løkken til partall
                 ferdig = true;
             }
             // lagre hvor mange oddetall- kan kalles skille til og ikke med
@@ -170,9 +170,30 @@ public class Oblig1 {
         // kan gå ut av tabellen. Sjekk v mindre enn tabell.lengde.
         // v <= h && er partall/oddetall
 
-        boolean vsortert = false;
-        while (!vsortert) {// sortering quicksort
-        }
+            if (partall==0 || partall==1) {//ikke sorter om ingen elementer // tallet er riktig om bare et tall
+            } else{// sorter alle partallene
+                boolean partallSortert = false;
+                int pivot = a[partall];
+                while (!partallSortert) {// sortering quicksort https://www.youtube.com/watch?v=Hoixgm4-P4M
+                    int vv = 0;
+                    int hh = partall;
+                    while (vv <= hh && a[vv]<pivot) {
+                        vv++;
+                    }
+                    while (vv <= hh && a[hh]>pivot) {
+                        hh--;
+                    }
+                    //bytt
+                    int tt = hh;
+                    hh = vv;
+                    vv = tt;
+                }
+                //pivot byttes med a[vv]
+
+            }
+        boolean hsortert = false;
+        while ()
+
 
         // problem noen av sidene kan bli tomme !!!
         // Velger siste/midterste/ element som pivot element.
@@ -194,7 +215,8 @@ public class Oblig1 {
         //Metoden må lages så den er relativt effektiv. En av testene vil måle effektivitet
         //på store tabeller.
 
-        throw new UnsupportedOperationException();}
+        // Bruk bytt tall funksjon. lag generell formel. rekursiv kalling
+    }
 
     // Oppgave 5
     public static void rotasjon(char[] a) {
