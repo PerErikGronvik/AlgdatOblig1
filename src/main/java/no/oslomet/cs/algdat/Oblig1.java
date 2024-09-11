@@ -121,8 +121,6 @@ public class Oblig1 {
                         nyttMinsteTall = a[i];
                     }
                 }
-
-
                 if (nyttMinsteTall == Integer.MAX_VALUE) { //stopper om ingen nytt minstetall blir funnet
                     status = true; //stopper løkken
                 } else {
@@ -148,34 +146,42 @@ public class Oblig1 {
     // Gjør om quicksorten til rekursiv og som bruker bytt og tar inn verdier
     public static void quicksortRange(int[] a, int v, int h) {
         int orginalV = v;
-        int pivot = h; //orginal h - og siste element som pivot
-        if ((h-v) <= 1) { //ikke sorter om ingen elementer // tallet er riktig om bare et tall
+        int orginalH = h;
+        if ((h - v) <= 0) { //ikke sorter om ingen elementer // tallet er riktig om bare et tall
+            return;
+        } else if ((h - v) == 1) {
+            if (a[v] > a[h]) {
+                bytt(a, v, h);
+            }
             return;
         } else {// sortering
             boolean rangeSortert = false;
+            int pivot = a[h];
+            int pivotIndex = h;
+            h--;
             while (!rangeSortert) {// sortering quicksort https://www.youtube.com/watch?v=Hoixgm4-P4M
                 while (v <= h && a[v] < pivot) {
                     v++;
                 }
-                while (v <= h && a[h] > pivot) {
+                while (v <= h && a[h] >= pivot) {
                     h--;
                 }
-                bytt(a, v, h);
-                if (v > h) {
+                if (v < h) {
+                    bytt(a, v, h);
+                } else { //stopper løkken om alle partallene er til venstre
+                    bytt(a, v, pivotIndex);
+                    return;
                 }
-
             }
-            //pivot byttes med a[h]
-            bytt(a, h, pivot);
-            quicksortRange(a,orginalV,v);
-            int nyH=h+1;
-            quicksortRange(a,nyH,pivot);
+
+            quicksortRange(a, orginalV, (v - 1));
+            quicksortRange(a, (v + 1), pivot);
         }
     }
 
 
     public static void delsortering(int[] a) {
-        a = new int[]{9, 7, 8, 4};
+        //a = new int[]{11, 7, 9, 8, 4, 2};
         int oddetall=0; //tatt ut for å kunne brukes utefor
         //tom og en verdi
         Boolean ferdig = false;
@@ -191,11 +197,8 @@ public class Oblig1 {
                 h--;
             }
             // når begge har funnet og ikke passert hverande, bytter tallene plass.
-            //bytt(a, v, h);
             if (v<h) {
-                int t = a[v];
-                a[v] = a[h];
-                a[h] = t;
+                bytt(a, v, h);
             }else{ //stopper løkken om alle partallene er til venstre
                 oddetall = v; // v talte partal og passeres ut av løkken til partall
                 ferdig = true;
@@ -203,12 +206,8 @@ public class Oblig1 {
 
         }
         // Kjøre quicksort
-        int start = 0;
-        quicksortRange(a,start,v);
-        start=v+1;
-        int slutt = a.length-1;
-        quicksortRange(a,start,slutt);
-        System.out.println(a);
+        quicksortRange(a,0,(v-1));
+        quicksortRange(a,v,a.length-1);
 
 
 
