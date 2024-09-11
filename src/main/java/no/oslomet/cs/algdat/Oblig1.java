@@ -173,16 +173,15 @@ public class Oblig1 {
                     rangeSortert=true;
                 }
             }
-            int starth=v;
             quicksortRange(a, orginalV, (v - 1));
-            quicksortRange(a, starth, orginalH);
+            quicksortRange(a, (v+1), orginalH);
         }
     }
 
 
     public static void delsortering(int[] a) {
-        a = new int[]{1, 2, 3, 4, 5, 6};
-        int oddetall=0; //tatt ut for å kunne brukes utefor
+        //a = new int[]{1, 2, 3, 4, 5, 6};
+
         //tom og en verdi
         Boolean ferdig = false;
         int v = 0;
@@ -200,7 +199,6 @@ public class Oblig1 {
             if (v<h) {
                 bytt(a, v, h);
             }else{ //stopper løkken om alle partallene er til venstre
-                oddetall = v-1; // v talte partal og passeres ut av løkken til partall
                 ferdig = true;
             }
 
@@ -209,7 +207,7 @@ public class Oblig1 {
         int startH = v;
         int startV = 0;
         quicksortRange(a,startV,(v-1));
-        quicksortRange(a,startH,a.length);
+        quicksortRange(a,startH,(a.length-1));
 
 
 
