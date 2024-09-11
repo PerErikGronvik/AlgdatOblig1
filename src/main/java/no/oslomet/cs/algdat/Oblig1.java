@@ -147,10 +147,10 @@ public class Oblig1 {
     }
     // Gjør om quicksorten til rekursiv og som bruker bytt og tar inn verdier
     public static void quicksortRange(int[] a, int v, int h) {
-        int range = h-v;
         int orginalV = v;
-        int pivot = h; //orginal h - og siste elemnt som pivot
-        if (range <= 1) { //ikke sorter om ingen elementer // tallet er riktig om bare et tall
+        int pivot = h; //orginal h - og siste element som pivot
+        if ((h-v) <= 1) { //ikke sorter om ingen elementer // tallet er riktig om bare et tall
+            return;
         } else {// sortering
             boolean rangeSortert = false;
             while (!rangeSortert) {// sortering quicksort https://www.youtube.com/watch?v=Hoixgm4-P4M
@@ -175,32 +175,29 @@ public class Oblig1 {
 
 
     public static void delsortering(int[] a) {
-        a = new int[]{2, 6, 5, 1, 7, 4};
-        int partall=0; //tatt ut for å kunne brukes utefor
+        a = new int[]{9, 7, 8, 4};
+        int oddetall=0; //tatt ut for å kunne brukes utefor
         //tom og en verdi
         Boolean ferdig = false;
         int v = 0;
         int h = a.length - 1;
         while (!ferdig) {
-            // Venstrepeker økes til den finner partall.  while(v <= h && er partall/oddetall)
-            while (v <= h && a[v] % 2 == 0 && v<a.length) {
+            // Venstrepeker skal finne oddetall
+            while (v <= h && a[v] % 2 != 0 && v<a.length) {
                 v++;
             }
-            // deretter minker venstrepeker til den finner oddetall. while(v <= h && er partall/oddetall)
-            while (v <= h && a[h] % 2 != 0 && h>0) {
+            // Høyrepeker skal finne oddetall.
+            while (v <= h && a[h] % 2 == 0 && h>0) {
                 h--;
             }
-            System.out.println(a);
             // når begge har funnet og ikke passert hverande, bytter tallene plass.
             //bytt(a, v, h);
-            int t =a[v];
-            a[v]=a[h];
-            a[h]=t;
-
-            System.out.println(a);
-
-            if (v > h) {
-                partall = v; // v talte partal og passeres ut av løkken til partall
+            if (v<h) {
+                int t = a[v];
+                a[v] = a[h];
+                a[h] = t;
+            }else{ //stopper løkken om alle partallene er til venstre
+                oddetall = v; // v talte partal og passeres ut av løkken til partall
                 ferdig = true;
             }
 
@@ -212,6 +209,7 @@ public class Oblig1 {
         int slutt = a.length-1;
         quicksortRange(a,start,slutt);
         System.out.println(a);
+
 
 
 
@@ -272,6 +270,8 @@ public class Oblig1 {
 
     // Oppgave 5
     public static void rotasjon(char[] a) {
+        throw new UnsupportedOperationException();
+        /**
 
         //En rotasjon i en tom tabell eller tabell med nøyaktig ett element skal ikke gi
         //feilmelding, men rotasjonen vil da ikke gjøre noe.
@@ -284,6 +284,7 @@ public class Oblig1 {
             }
             a[0]=siste;
         }
+        **/
     }
 
     // Oppgave 6    Ikke obligatorisk
