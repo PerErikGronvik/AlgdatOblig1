@@ -147,9 +147,9 @@ public class Oblig1 {
     public static void quicksortRange(int[] a, int v, int h) {
         int orginalV = v;
         int orginalH = h;
-        if ((h - v) <= 0) { //ikke sorter om ingen elementer // tallet er riktig om bare et tall
+        if ((h - v) <= 0) { //om 0 eller et tall ferdig.
             return;
-        } else if ((h - v) == 1) {
+        } else if ((h - v) == 1) { //to elementer
             if (a[v] > a[h]) {
                 bytt(a, v, h);
             }
@@ -168,20 +168,20 @@ public class Oblig1 {
                 }
                 if (v < h) {
                     bytt(a, v, h);
-                } else { //stopper løkken om alle partallene er til venstre
+                } else { //ferdig
                     bytt(a, v, pivotIndex);
-                    return;
+                    rangeSortert=true;
                 }
             }
-
+            int starth=v;
             quicksortRange(a, orginalV, (v - 1));
-            quicksortRange(a, (v + 1), pivot);
+            quicksortRange(a, starth, orginalH);
         }
     }
 
 
     public static void delsortering(int[] a) {
-        //a = new int[]{11, 7, 9, 8, 4, 2};
+        a = new int[]{1, 2, 3, 4, 5, 6};
         int oddetall=0; //tatt ut for å kunne brukes utefor
         //tom og en verdi
         Boolean ferdig = false;
@@ -200,14 +200,16 @@ public class Oblig1 {
             if (v<h) {
                 bytt(a, v, h);
             }else{ //stopper løkken om alle partallene er til venstre
-                oddetall = v; // v talte partal og passeres ut av løkken til partall
+                oddetall = v-1; // v talte partal og passeres ut av løkken til partall
                 ferdig = true;
             }
 
         }
         // Kjøre quicksort
-        quicksortRange(a,0,(v-1));
-        quicksortRange(a,v,a.length-1);
+        int startH = v;
+        int startV = 0;
+        quicksortRange(a,startV,(v-1));
+        quicksortRange(a,startH,a.length);
 
 
 
