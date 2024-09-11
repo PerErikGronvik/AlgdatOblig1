@@ -138,14 +138,50 @@ public class Oblig1 {
 // Tell like og trekk ifra length - hvis jeg får tid. Vil bli enklere.
 
     // Oppgave 4
-    public static void delsortering(int[] a) {
 
+    //lager en byttefunksjon
+    public static void bytt(int[] a, int i, int j) {
+        int temp = a[i];
+        a[i] = a[j];
+        a[j] = temp;
+    }
+    // Gjør om quicksorten til rekursiv og som bruker bytt og tar inn verdier
+    public static void quicksortRange(int[] a, int v, int h) {
+        int range = h-v;
+        int orginalV = v;
+        int pivot = h; //orginal h - og siste elemnt som pivot
+        if (range <= 1) { //ikke sorter om ingen elementer // tallet er riktig om bare et tall
+        } else {// sortering
+            boolean rangeSortert = false;
+            while (!rangeSortert) {// sortering quicksort https://www.youtube.com/watch?v=Hoixgm4-P4M
+                while (v <= h && a[v] < pivot) {
+                    v++;
+                }
+                while (v <= h && a[h] > pivot) {
+                    h--;
+                }
+                bytt(a, v, h);
+                if (v > h) {
+                }
+
+            }
+            //pivot byttes med a[h]
+            bytt(a, h, pivot);
+            quicksortRange(a,orginalV,v);
+            int nyH=h+1;
+            quicksortRange(a,nyH,pivot);
+        }
+    }
+
+
+    public static void delsortering(int[] a) {
+        a = new int[]{2, 6, 5, 1, 7, 4};
         int partall=0; //tatt ut for å kunne brukes utefor
         //tom og en verdi
         Boolean ferdig = false;
+        int v = 0;
+        int h = a.length - 1;
         while (!ferdig) {
-            int v = 0;
-            int h = a.length - 1;
             // Venstrepeker økes til den finner partall.  while(v <= h && er partall/oddetall)
             while (v <= h && a[v] % 2 == 0 && v<a.length) {
                 v++;
@@ -154,22 +190,35 @@ public class Oblig1 {
             while (v <= h && a[h] % 2 != 0 && h>0) {
                 h--;
             }
+            System.out.println(a);
             // når begge har funnet og ikke passert hverande, bytter tallene plass.
+            //bytt(a, v, h);
             int t =a[v];
             a[v]=a[h];
             a[h]=t;
+
+            System.out.println(a);
 
             if (v > h) {
                 partall = v; // v talte partal og passeres ut av løkken til partall
                 ferdig = true;
             }
-            // lagre hvor mange oddetall- kan kalles skille til og ikke med
-        }
-        // p2
-        // problem hva om alle element er partall eller oddetall(ikke partall).
-        // kan gå ut av tabellen. Sjekk v mindre enn tabell.lengde.
-        // v <= h && er partall/oddetall
 
+        }
+        // Kjøre quicksort
+        int start = 0;
+        quicksortRange(a,start,v);
+        start=v+1;
+        int slutt = a.length-1;
+        quicksortRange(a,start,slutt);
+        System.out.println(a);
+
+
+
+
+        /**
+
+        //Manuell sortering uten rekursjon som fungerer tror jeg.
             if (partall==0 || partall==1) {//ikke sorter om ingen elementer // tallet er riktig om bare et tall
             } else{// sorter alle partallene
                 boolean partallSortert = false;
@@ -191,8 +240,10 @@ public class Oblig1 {
                 //pivot byttes med a[vv]
 
             }
-        boolean hsortert = false;
-        while ()
+
+        //for høyre side. in ragne partall+1 til a.length-1
+        //boolean hsortert = false;
+        //while ()
 
 
         // problem noen av sidene kan bli tomme !!!
@@ -216,7 +267,8 @@ public class Oblig1 {
         //på store tabeller.
 
         // Bruk bytt tall funksjon. lag generell formel. rekursiv kalling
-    }
+         **/
+     }
 
     // Oppgave 5
     public static void rotasjon(char[] a) {
@@ -258,57 +310,62 @@ public class Oblig1 {
 
 
     // Oppgave 7
+
     public static String flett(String s, String t) {
+        throw new UnsupportedOperationException();
+/**
+ //«flette» sammen to strenger s og t, slik at resultatet er en streng
+ //brianstorm kode
+ int v1 =0;
+ int v2 =0;
+ while{
+ while
+ while
+ if erTegn(streng[i]){
+ a += streng[i]
+ };
+ if v1!=ertegn && v2!=ertegn
+ true //end
+ }
 
-        //«flette» sammen to strenger s og t, slik at resultatet er en streng
-        //brianstorm kode
-        int v1 =0;
-        int v2 =0;
-        while{
-            while
-            while
-                if erTegn(streng[i]){
-                    a += streng[i]
-                };
-            if v1!=ertegn && v2!=ertegn
-                true //end
+ //der annenhvert tegn kommer fra s, og annenhvert kommer fra t. Hvis s
+ //og t har forskjellig lengde, skal det som er «til overs» legges inn bakerst.
+ //Metoden skal returnere den sammenflettede strengen. Følgende eksempler
+ //viser bruksområder.
+ //String a = flett("ABC", "DEF");
+ //// a er nå "ADBECF"
+ //a = flett("IJKLMN","OPQ");
+ //// a er nå "IOJPKQLMN"
+ //a = flett("", "AB");
+ //// a er nå "AB"
+ //Tomme strenger er lovlig input.
+ **/
+ }
+
+
+ public static String flett(String... s) {
+     throw new UnsupportedOperationException();
+
+        /**
+ //Lag metoden public static String flett(String... s). Metoden
+ //skal «flette» sammen alle strengene i tabellen s. Flettingen skal fortløpende
+ //hente første tegn fra første streng, så første tegn fra andre streng, og så
+
+ //videre. Etter siste streng begynner vi på ny med nå andre tegn fra første
+ //streng, så andre tegn fra andre streng, og så videre. En «oppbrukt» streng
+ //skal hoppes over. Den sammenflettede strengen skal returneres. Følgende
+ //eksempel viser bruksområdet.
+ //String a = flett("AM ", "L", "GEDS", "ORATKRR", "",
+ //"R TRTE", "IO", "TGAUU");
+ //// a er nå "ALGORITMER OG DATASTRUKTURER"
+ //Det skal ikke gi feilmelding å sende inn null strenger (men svaret skal da bli
+ //en tom streng), eller én streng (men svaret skal da bli den samme strengen).
+ //Hint: Ved å bruke en dobbel for-løkke kan du nesten gå gjennom s[i][j],
+ //hvor i tilsvarer hvilket «ord» man er på, og j er hvilken «bokstav» man er
+ //kommet til. Men merk at vi vil gå gjennom j «tregere» enn i.
+ **/
         }
 
-        //der annenhvert tegn kommer fra s, og annenhvert kommer fra t. Hvis s
-        //og t har forskjellig lengde, skal det som er «til overs» legges inn bakerst.
-        //Metoden skal returnere den sammenflettede strengen. Følgende eksempler
-        //viser bruksområder.
-        //String a = flett("ABC", "DEF");
-        //// a er nå "ADBECF"
-        //a = flett("IJKLMN","OPQ");
-        //// a er nå "IOJPKQLMN"
-        //a = flett("", "AB");
-        //// a er nå "AB"
-        //Tomme strenger er lovlig input.
-
-        }
-
-    public static String flett(String... s) {
-
-        //Lag metoden public static String flett(String... s). Metoden
-        //skal «flette» sammen alle strengene i tabellen s. Flettingen skal fortløpende
-        //hente første tegn fra første streng, så første tegn fra andre streng, og så
-
-        //videre. Etter siste streng begynner vi på ny med nå andre tegn fra første
-        //streng, så andre tegn fra andre streng, og så videre. En «oppbrukt» streng
-        //skal hoppes over. Den sammenflettede strengen skal returneres. Følgende
-        //eksempel viser bruksområdet.
-        //String a = flett("AM ", "L", "GEDS", "ORATKRR", "",
-        //"R TRTE", "IO", "TGAUU");
-        //// a er nå "ALGORITMER OG DATASTRUKTURER"
-        //Det skal ikke gi feilmelding å sende inn null strenger (men svaret skal da bli
-        //en tom streng), eller én streng (men svaret skal da bli den samme strengen).
-        //Hint: Ved å bruke en dobbel for-løkke kan du nesten gå gjennom s[i][j],
-        //hvor i tilsvarer hvilket «ord» man er på, og j er hvilken «bokstav» man er
-        //kommet til. Men merk at vi vil gå gjennom j «tregere» enn i.
-
-
-        throw new UnsupportedOperationException();}
 
     // Oppgave 8
     public static int[] indeksSortering(int[] a) {
