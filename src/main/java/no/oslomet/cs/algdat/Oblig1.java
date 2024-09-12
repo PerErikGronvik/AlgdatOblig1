@@ -208,70 +208,10 @@ public class Oblig1 {
         int startV = 0;
         quicksortRange(a,startV,(v-1));
         quicksortRange(a,startH,(a.length-1));
-
-
-
-
-
-        /**
-
-        //Manuell sortering uten rekursjon som fungerer tror jeg.
-            if (partall==0 || partall==1) {//ikke sorter om ingen elementer // tallet er riktig om bare et tall
-            } else{// sorter alle partallene
-                boolean partallSortert = false;
-                int pivot = a[partall];
-                while (!partallSortert) {// sortering quicksort https://www.youtube.com/watch?v=Hoixgm4-P4M
-                    int vv = 0;
-                    int hh = partall;
-                    while (vv <= hh && a[vv]<pivot) {
-                        vv++;
-                    }
-                    while (vv <= hh && a[hh]>pivot) {
-                        hh--;
-                    }
-                    //bytt
-                    int tt = hh;
-                    hh = vv;
-                    vv = tt;
-                }
-                //pivot byttes med a[vv]
-
-            }
-
-        //for høyre side. in ragne partall+1 til a.length-1
-        //boolean hsortert = false;
-        //while ()
-
-
-        // problem noen av sidene kan bli tomme !!!
-        // Velger siste/midterste/ element som pivot element.
-        // 3 partisjoner mindre pivot eller 'større eller lik' en pivot elementet.
-        // dermed er alltid en liste kortere.
-
-        //
-
-        // Den skal dele tabellen a i to sorterte deler.
-        // Venstre del skal inneholde alle oddetallene sortert, og
-        // høyre del alle partallene sortert.
-
-        //Tabellen a kan være tom, kan inneholde både negative og positive tall, kan
-        //bestå av kun oddetall, eller kun av kun partall. Ingen av disse mulighetene skal gi
-        //feilmelding.
-
-        //Metoden skal ikke bruke hjelpetabeller. Alt arbeid skal kun foregå innenfor
-        //tabellen a. Du kan selvfølgelig bruke hjelpevariabler.
-        //Metoden må lages så den er relativt effektiv. En av testene vil måle effektivitet
-        //på store tabeller.
-
-        // Bruk bytt tall funksjon. lag generell formel. rekursiv kalling
-         **/
      }
 
     // Oppgave 5
     public static void rotasjon(char[] a) {
-        throw new UnsupportedOperationException();
-        /**
-
         //En rotasjon i en tom tabell eller tabell med nøyaktig ett element skal ikke gi
         //feilmelding, men rotasjonen vil da ikke gjøre noe.
         if (a.length == 0) {
@@ -283,7 +223,6 @@ public class Oblig1 {
             }
             a[0]=siste;
         }
-        **/
     }
 
     // Oppgave 6    Ikke obligatorisk
