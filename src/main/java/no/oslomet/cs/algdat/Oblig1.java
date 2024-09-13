@@ -143,6 +143,7 @@ public class Oblig1 {
         a[i] = a[j];
         a[j] = temp;
     }
+
     // Gjør om quicksorten til rekursiv og som bruker bytt og tar inn verdier
     public static void quicksortRange(int[] a, int v, int h) {
         int orginalV = v;
@@ -170,11 +171,11 @@ public class Oblig1 {
                     bytt(a, v, h);
                 } else { //ferdig
                     bytt(a, v, pivotIndex);
-                    rangeSortert=true;
+                    rangeSortert = true;
                 }
             }
             quicksortRange(a, orginalV, (v - 1));
-            quicksortRange(a, (v+1), orginalH);
+            quicksortRange(a, (v + 1), orginalH);
         }
     }
 
@@ -188,17 +189,17 @@ public class Oblig1 {
         int h = a.length - 1;
         while (!ferdig) {
             // Venstrepeker skal finne oddetall
-            while (v <= h && a[v] % 2 != 0 && v<a.length) {
+            while (v <= h && a[v] % 2 != 0 && v < a.length) {
                 v++;
             }
             // Høyrepeker skal finne oddetall.
-            while (v <= h && a[h] % 2 == 0 && h>0) {
+            while (v <= h && a[h] % 2 == 0 && h > 0) {
                 h--;
             }
             // når begge har funnet og ikke passert hverande, bytter tallene plass.
-            if (v<h) {
+            if (v < h) {
                 bytt(a, v, h);
-            }else{ //stopper løkken om alle partallene er til venstre
+            } else { //stopper løkken om alle partallene er til venstre
                 ferdig = true;
             }
 
@@ -206,9 +207,9 @@ public class Oblig1 {
         // Kjøre quicksort
         int startH = v;
         int startV = 0;
-        quicksortRange(a,startV,(v-1));
-        quicksortRange(a,startH,(a.length-1));
-     }
+        quicksortRange(a, startV, (v - 1));
+        quicksortRange(a, startH, (a.length - 1));
+    }
 
     // Oppgave 5
     public static void rotasjon(char[] a) {
@@ -218,10 +219,10 @@ public class Oblig1 {
         } else if (a.length == 1) {
         } else {
             char siste = a[a.length - 1];
-            for (int i = a.length-1; i > 0; i--) {
-                a[i]=a[i-1];
+            for (int i = a.length - 1; i > 0; i--) {
+                a[i] = a[i - 1];
             }
-            a[0]=siste;
+            a[0] = siste;
         }
     }
 
@@ -245,65 +246,32 @@ public class Oblig1 {
         //// a er nå {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'}
 
 
-        throw new UnsupportedOperationException();}
+        throw new UnsupportedOperationException();
+    }
 
 
     // Oppgave 7
 
     public static String flett(String s, String t) {
-        throw new UnsupportedOperationException();
-/**
- //«flette» sammen to strenger s og t, slik at resultatet er en streng
- //brianstorm kode
- int v1 =0;
- int v2 =0;
- while{
- while
- while
- if erTegn(streng[i]){
- a += streng[i]
- };
- if v1!=ertegn && v2!=ertegn
- true //end
- }
-
- //der annenhvert tegn kommer fra s, og annenhvert kommer fra t. Hvis s
- //og t har forskjellig lengde, skal det som er «til overs» legges inn bakerst.
- //Metoden skal returnere den sammenflettede strengen. Følgende eksempler
- //viser bruksområder.
- //String a = flett("ABC", "DEF");
- //// a er nå "ADBECF"
- //a = flett("IJKLMN","OPQ");
- //// a er nå "IOJPKQLMN"
- //a = flett("", "AB");
- //// a er nå "AB"
- //Tomme strenger er lovlig input.
- **/
- }
-
-
- public static String flett(String... s) {
-     throw new UnsupportedOperationException();
-
-        /**
- //Lag metoden public static String flett(String... s). Metoden
- //skal «flette» sammen alle strengene i tabellen s. Flettingen skal fortløpende
- //hente første tegn fra første streng, så første tegn fra andre streng, og så
-
- //videre. Etter siste streng begynner vi på ny med nå andre tegn fra første
- //streng, så andre tegn fra andre streng, og så videre. En «oppbrukt» streng
- //skal hoppes over. Den sammenflettede strengen skal returneres. Følgende
- //eksempel viser bruksområdet.
- //String a = flett("AM ", "L", "GEDS", "ORATKRR", "",
- //"R TRTE", "IO", "TGAUU");
- //// a er nå "ALGORITMER OG DATASTRUKTURER"
- //Det skal ikke gi feilmelding å sende inn null strenger (men svaret skal da bli
- //en tom streng), eller én streng (men svaret skal da bli den samme strengen).
- //Hint: Ved å bruke en dobbel for-løkke kan du nesten gå gjennom s[i][j],
- //hvor i tilsvarer hvilket «ord» man er på, og j er hvilken «bokstav» man er
- //kommet til. Men merk at vi vil gå gjennom j «tregere» enn i.
- **/
+        int i = 0;
+        int stringlengthV = s.length();
+        int stringlengthH = t.length();
+        String nyString = "";
+        int stringLengthMax = Math.max(s.length(), t.length());
+        while (i < stringLengthMax) {
+            if (i < stringlengthV) {
+                nyString += s.charAt(i);
+            }
+            if (i < stringlengthH) {
+                nyString += t.charAt(i);
+            }
+            i++;
         }
+        return nyString;
+    }
+    public static String flett(String... s) {
+     throw new UnsupportedOperationException();
+    }
 
 
     // Oppgave 8
@@ -346,7 +314,8 @@ public class Oblig1 {
         //NoSuchElementException med en passende tekst. Metoden skal ikke endre på
         //innholdet i a.
 
-        throw new UnsupportedOperationException();}
+        throw new UnsupportedOperationException();
+    }
 
     // Oppgave 10
     public static boolean inneholdt(String a, String b) {
