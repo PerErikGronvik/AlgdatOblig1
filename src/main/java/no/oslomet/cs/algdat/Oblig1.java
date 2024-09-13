@@ -21,13 +21,6 @@ public class Oblig1 {
         } else if (a.length == 1) {
             return a[0];
         } else {
-            //Sammenlikn de to første elementene i tabellen. Hvis det første elementet er
-            //størst, bytt plass på de to verdiene.
-            //Sammenlikn så de to neste elementene i tabellen (element 2 og 3, så indeks
-            //1 og 2). Hvis det første av dem er størst, bytt plass på de to verdiene.
-            //3. Fortsett med de neste to elementene, så de neste to, helt til du har gått
-            //gjennom hele tabellen.
-
             for (int i = 0; i < a.length - 1; i++) {
 
                 if (a[i] > a[i + 1]) {
@@ -74,11 +67,6 @@ public class Oblig1 {
             }
             return sum;
         }
-        //maks ombyttinger. må være 2 tall. 2 tall kan byttes 1 gang. 3 tall kan byttes 2 gang osv..
-        //n-1
-        //gjennomsnitt sannsynlighet for bytt ved 2 tall + sannsynlighet for bytte ved 3 tall + ved n tall
-        // 1/2 ved første 2/3 ved andre siden de to første har større sannsynlighet for å være større.
-        // (n/n+1) der (n > 1)
     }
 
     // Oppgave 2
