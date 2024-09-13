@@ -257,8 +257,8 @@ public class Oblig1 {
         int stringlengthV = s.length();
         int stringlengthH = t.length();
         String nyString = "";
-        int stringLengthMax = Math.max(s.length(), t.length());
-        while (i < stringLengthMax) {
+        int stringLengthMax = Math.max(s.length(), t.length()); // finner lengste
+        while (i < stringLengthMax) { //kjører gjennom hver bokstav
             if (i < stringlengthV) {
                 nyString += s.charAt(i);
             }
@@ -270,7 +270,22 @@ public class Oblig1 {
         return nyString;
     }
     public static String flett(String... s) {
-     throw new UnsupportedOperationException();
+        String nyString = "";
+        int høyeste=0;
+        for (int i = 0; i < s.length; i++) { // Finner lengste ord
+            if (s[i].length()>høyeste){
+                høyeste=s[i].length();
+            }
+
+        }
+        for (int i = 0; i < høyeste; i++) { // går gjennomm ord
+            for (int j = 0; j < s.length; j++) { // går gjennom bokstav
+                if(i<s[j].length()) {
+                    nyString += s[j].charAt(i);
+                }
+            }
+        }
+        return nyString;
     }
 
 

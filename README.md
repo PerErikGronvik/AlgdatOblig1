@@ -20,8 +20,10 @@ a: O(n) sammenligninger siden (n-1) er maks sammenligninger.
 b: Det blir færrest ombyttinger når arrayet er sortert i synkende rekkefølge, 0 obyttinger.
 c: Det blir flest ombyttinger når det første tallet også er det største. (n-1) ombyttinger.
 d: Ved å kjøre public static double gjennomsnittligOmbyttinger(int[] a) kan du få gjennomsnittlig ombyttinger for arrayet a. 
-e: Formelen for ombyttinger er. Summering av lengden n: n/n+1 der n >= 1. som blir: 1/2 +2/3 + 3/4 osv... som vil si O(n)
-f: Når en bruker en vanlig maks algoritme er sannsynligheten summen av 1/(n+1) n >= 1. som blir 1/2 + 1/3 +1/4 osv. dette er O(log (n)). log (n) er bedre enn n, en annen måte å si det er at sjansen for bytting nærmer seg 100% sannsynlig for metoden, mens for en vanlig algoritme nærmer sannsynligheten for bytting seg null.
+- Formelen for ombyttinger er. Summering av lengden n: n/n+1 der n >= 1. som blir: 1/2 +2/3 + 3/4 osv... som vil si O(n)
+- Når en bruker en vanlig maks algoritme er sannsynligheten summen av 1/(n+1) n >= 1. som blir 1/2 + 1/3 +1/4 osv. dette er O(log (n)). log (n) er bedre enn n, en annen måte å si det er at sjansen for bytting nærmer seg 100% sannsynlig for metoden, mens for en vanlig algoritme nærmer sannsynligheten for bytting seg null.
+- Ønsker tilbakemelding på om det er vanlig å omtale delfunksjoner med O og om dette er riktig forståelse av hvordan sannsynligheten for bytt kan regnes ut og derfor forventingsverdien for antall bytt for array med disse lengdene.
+
 
 ### Oppgave 2
 Her ble det brukt mye tid på at for-løkken startet på 1 og skulle ha startet på 0. Jeg startet med kode for lengdene 0 og 1, enkle if statements. Jeg brukte en løkke og prøvde å være minimalistisk. Jeg teller derfor bare når det er en endring, dersom det er feil rekkefølge kaster jeg feil. Når tallet er likt er det mest effektivt å bare ikke telle enn å lage egen kode for det. 
@@ -33,13 +35,13 @@ I oppgave 3 har jeg gjort tin unødvendig vanskelig. Vi vet at antall ulike = an
 Laget bytt funskjon for å komprimere koden. Delsorteringen i oddetall og partall. Her har jeg v<a.length og h>0 for å forhindre at løkken løper utenfor løkken og gir 0 peker ved en type. Skriptet velger høyre som pivot, det er en høyrepeker og en venstrepeker som går fra sidene mot midten, eskludert pivoten. Algoritmen bytter slik at oddetall havner på venste side og oddetall på høyre. Så kjøres qicksort på oddetall og partall hver for seg. 
 
 ### Oppgave 5
-Lagrer et element og så skriver over alle element på siden, et om gangen.  Det lagrede elementet settes inn på slutten av algoritmen. 
+Lagrer et element og så skriver over alle element på siden, et om gangen.  Det lagrede elementet settes inn på slutten av algoritmen.
 
-### Oppgave 6
-Ikke obligatorisk, kanskje senere.
+### Oppgave 7a
+Jeg lagde en while løkke som kjører gjennom, og legger til en bokstav i en ny string dersom stringen ikke var mer enn maks.  
 
-### Oppgave 7
-
+### Oppgave 7b
+En for løkke fant maks itterasjoner, disse brukte jeg i en dobbel for loop som kjørte gjennom ord for ord og samme bokstav i hvert ord. For løkken hadde en if statement som bare satt inn ord dersom lengden ikke var overskredet.
 
 
 //Due by Sep 13, 2024, 21:59 UTC
