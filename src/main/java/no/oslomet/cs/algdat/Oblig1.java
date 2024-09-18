@@ -124,40 +124,40 @@ public class Oblig1 {
         a[i] = a[j];
         a[j] = temp;
     }
-
-    // Gjør om quicksorten til rekursiv og som bruker bytt og tar inn verdier
     public static void quicksortRange(int[] a, int v, int h) {
-        int orginalV = v;
-        int orginalH = h;
+
         if ((h - v) <= 0) { //om 0 eller et tall ferdig.
             return;
-        } else if ((h - v) == 1) { //to elementer
+        }
+        if ((h - v) == 1) { //to elementer
             if (a[v] > a[h]) {
                 bytt(a, v, h);
+                return;
             }
-            return;
-        } else {// sortering
-            boolean rangeSortert = false;
-            int pivot = a[h];
-            int pivotIndex = h;
-            h--;
-            while (!rangeSortert) {// sortering quicksort https://www.youtube.com/watch?v=Hoixgm4-P4M
-                while (v <= h && a[v] < pivot) {
-                    v++;
-                }
-                while (v <= h && a[h] >= pivot) {
-                    h--;
-                }
-                if (v < h) {
-                    bytt(a, v, h);
-                } else { //ferdig
-                    bytt(a, v, pivotIndex);
-                    rangeSortert = true;
-                }
-            }
-            quicksortRange(a, orginalV, (v - 1));
-            quicksortRange(a, (v + 1), orginalH);
         }
+        int pivot = a[h];
+        h--; //Fjerner pivot fra behandlingsområde
+
+        // midletidlige v og h.
+        int tv =v;
+        int th= h;
+
+        while (tv <= th) {// sortering quicksort https://www.youtube.com/watch?v=Hoixgm4-P4M
+            while (tv <= th && a[tv] < pivot) {
+                tv++;
+            }
+            while (tv <= th && a[th] >= pivot) {
+                th--;
+            }
+            if (tv < th) {
+                bytt(a, tv, th);
+            }
+        }
+        bytt(a, tv, (h+1)); // Plasser pivot på riktig plass h + 1 = pivot indeksen
+
+        //rekursiv sortering av venstre og høyre del.
+        quicksortRange(a, v, (tv - 1));
+        quicksortRange(a, (tv + 1), (h+1));
     }
 
 
