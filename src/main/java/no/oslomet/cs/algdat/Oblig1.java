@@ -98,30 +98,23 @@ public class Oblig1 {
             return 0;
         } else if (a.length == 1) { //tabell med et tall har et unikt tall
             return 1;
-        } else {
-            int tellerUnike = 0; // Teller unike tall.
-            int minsteUbrukteTall = Integer.MIN_VALUE;
-            boolean status = false;
-            while (!status) { //teller minste ubrukte tall.
-                int nyttMinsteTall = Integer.MAX_VALUE; // Resetter nyttminstetall
-                for (int i = 0; i < a.length; i++) { //finner minste ubrukte tall
-                    if (a[i] < nyttMinsteTall && a[i] > minsteUbrukteTall) {
-                        nyttMinsteTall = a[i];
+        } else { //finner om tall har et likt etter seg.
+            int likeTallTeller = 0;
+            for (int i = 0; i < a.length - 1; i++) {
+                for (int j = i + 1; j < a.length; j++) {
+                    if (a[i] == a[j]) {
+                        likeTallTeller++;
+                        break;
                     }
                 }
-                if (nyttMinsteTall == Integer.MAX_VALUE) { //stopper om ingen nytt minstetall blir funnet
-                    status = true; //stopper løkken
-                } else {
-                    minsteUbrukteTall = nyttMinsteTall;
-                    tellerUnike++; //teller for hvert unike tall.
-                }
             }
-            return tellerUnike;
-        }
+            int unike = a.length - likeTallTeller;
+            return unike;
 
+
+        }
     }
 
-// Tell like og trekk ifra length - hvis jeg får tid. Vil bli enklere.
 
     // Oppgave 4
 
