@@ -7,7 +7,7 @@ Oppgaven er levert av følgende studenter:
 * fikk kanskje til svar??
 
 ## Arbeidsfordeling
-* pegro6469, kommer uansett til å prøve å gjøre alt. Evt passasjer får gjøre minst 3 oppgaver inkludert nr 8
+* pegro6469, kommer uansett til å prøve å gjøre alt. Evt passasjer får gjøre minst 3 oppgaver inkludert nr 8-
 
 ## Oppgavebeskrivelser
 
