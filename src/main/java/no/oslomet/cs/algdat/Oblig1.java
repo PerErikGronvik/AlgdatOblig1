@@ -196,11 +196,11 @@ public class Oblig1 {
     public static void rotasjon(char[] a) {
         //En rotasjon i en tom tabell eller tabell med nøyaktig ett element skal ikke gi
         //feilmelding, men rotasjonen vil da ikke gjøre noe.
-        if (a.length == 0) {
-        } else if (a.length == 1) {
-        } else {
-            char siste = a[a.length - 1];
-            for (int i = a.length - 1; i > 0; i--) {
+        if (a.length == 0) { //ingen endringer
+        } else if (a.length == 1) { //ingen endringer
+        } else { // roter høyre
+            char siste = a[a.length - 1]; // lagres for å brukes i rotering
+            for (int i = a.length - 1; i > 0; i--) { // skifter elementene mot venstre
                 a[i] = a[i - 1];
             }
             a[0] = siste;
@@ -209,7 +209,24 @@ public class Oblig1 {
 
     // Oppgave 6    Ikke obligatorisk
     public static void rotasjon(char[] a, int k) {
-
+        if (a.length <= 1) {
+        } else if (k < 0) {
+            for (int j = 0; j < Math.abs(k); j++) {
+                char siste = a[a.length - 1]; // Lagrer siste element
+                for (int i = a.length - 1; i > 0; i--) {
+                    a[i] = a[i - 1]; // Flytter elementer til høyre
+                }
+                a[0] = siste;
+            }
+        } else {
+            for (int j = 0; j < k; j++) {
+                char første = a[0]; // Lagrer det første elementet
+                for (int i = 0; i < a.length - 1; i++) {
+                    a[i] = a[i + 1]; // Flytter elementer til venstre
+                }
+                a[a.length - 1] = første;
+            }
+        }
         //Vi går her videre fra forrige oppgave, og vil kunne rotere mer enn ett steg.
         //Lag metoden public static void rotasjon(char[] a, int k), der k er et
         //vilkårlig heltall. Dersom k = 1 skal metoden gjøre det samme som i forrige oppgave.
@@ -225,9 +242,6 @@ public class Oblig1 {
         //// a er nå {'J', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'}
         //rotasjon(a, 19);
         //// a er nå {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'}
-
-
-        throw new UnsupportedOperationException();
     }
 
 
@@ -272,6 +286,7 @@ public class Oblig1 {
 
     // Oppgave 8
     public static int[] indeksSortering(int[] a) {
+
         //Lag metoden public static int[] indeksSortering(int[] a). Den skal
         //returnere en tabell med indekser som beskriver en sortering av a, men tabellen a
         //skal ikke endres. Følgende eksempel beskriver et bruksområde.
